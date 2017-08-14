@@ -32,6 +32,8 @@ public class UserInfoService {
         CustomerContextHolder.setMainDataSource();
         int count = userInfoMapper.obtainUserCount();
         CustomerContextHolder.clearContextHolder();
+        int num=userInfoMapper.obtainUserCount();
+        logger.info("num:\t"+num);
         logger.info("count:\t" + count);
         return count;
     }
