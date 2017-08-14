@@ -1,7 +1,6 @@
 package com.ctyk.mobile.template.module.hook;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -16,7 +15,7 @@ import java.util.Enumeration;
  */
 public class CloseHook implements ServletContextListener {
 
-    private final Logger logger = LogManager.getLogger(getClass());
+    private final Logger logger = Logger.getLogger(getClass());
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {

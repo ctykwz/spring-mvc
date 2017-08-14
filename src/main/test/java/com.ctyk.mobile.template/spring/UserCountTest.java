@@ -1,8 +1,7 @@
 package com.ctyk.mobile.template.spring;
 
 import com.ctyk.mobile.template.services.UserInfoService;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 @ContextConfiguration(value = "/spring/spring-root.xml")
 public class UserCountTest {
 
-    private static final Logger logger = LogManager.getLogger(UserCountTest.class);
+    private static final Logger logger = Logger.getLogger(UserCountTest.class);
 
     @Autowired
     private UserInfoService userInfoService;

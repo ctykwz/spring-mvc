@@ -1,7 +1,6 @@
 package com.ctyk.mobile.template.utils;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +12,7 @@ import java.util.Random;
 
 public class RandomValidateCodeUtil {
 
-    private static final Logger logger = LogManager.getLogger(RandomValidateCodeUtil.class);
+    private static final Logger logger = Logger.getLogger(RandomValidateCodeUtil.class);
 
     // 放到session中的key
     public static final String RANDOM_CODE_KEY = "RANDOM_VAL_I_DATE_CODE_KEY";

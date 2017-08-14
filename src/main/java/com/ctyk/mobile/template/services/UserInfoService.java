@@ -2,8 +2,7 @@ package com.ctyk.mobile.template.services;
 
 import com.ctyk.mobile.template.dao.UserInfoMapper;
 import com.ctyk.mobile.template.module.dds.CustomerContextHolder;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserInfoService {
 
-    private static final Logger logger = LogManager.getLogger(UserInfoService.class);
+    private static final Logger logger = Logger.getLogger(UserInfoService.class);
 
     private UserInfoMapper userInfoMapper;
 

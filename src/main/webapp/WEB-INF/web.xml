@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <web-app>
-  <display-name>template</display-name>
+  <display-name>spring-mvc</display-name>
 
   <context-param>
     <param-name>contextConfigLocation</param-name>
