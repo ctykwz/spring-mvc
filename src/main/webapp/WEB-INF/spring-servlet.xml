@@ -48,21 +48,34 @@
         <property name="maxInMemorySize" value="40960"/>
     </bean>
 
-    <bean id="velocityConfigurer" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
-        <property name="resourceLoaderPath" value="/WEB-INF/templates/"/>
-        <property name="velocityProperties">
+    <bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/templates/"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="freemarkerSettings">
             <props>
-                <prop key="input.encoding">UTF-8</prop>
-                <prop key="output.encoding">UTF-8</prop>
+                <!--模板刷新周期，单位为s-->
+                <prop key="template_update_delay">10</prop>
+                <!--模板的编码格式-->
+                <prop key="default_encoding">UTF-8</prop>
+                <prop key="locale">zh_CN</prop>
+                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+                <prop key="date_format">yyyy-MM-dd</prop>
+                <prop key="boolean_format">true,false</prop>
+                <prop key="tag_syntax">auto_detect</prop>
+                <prop key="whitespace_stripping">true</prop>
+                <prop key="classic_compatible">true</prop>
             </props>
         </property>
     </bean>
-    <bean id="velocityViewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+
+    <bean id="freeMarkerViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="viewClass" value="com.ctyk.mobile.template.module.freemarker.MFreeMarkerView"/>
+        <property name="suffix" value=".ftl"/>
+        <property name="exposeRequestAttributes" value="true"/>
+        <property name="exposeSessionAttributes" value="true"/>
         <property name="exposeSpringMacroHelpers" value="true"/>
-        <property name="suffix" value=".vm"/>
-        <property name="toolboxConfigLocation" value="/WEB-INF/toolbox.xml"/>
-        <property name="contentType" value="text/html;charset=UTF-8"/>
     </bean>
+
     <!-- 静态资源 -->
     <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/"/>
 </beans>

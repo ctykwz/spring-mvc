@@ -19,7 +19,7 @@ public class TestCron {
     @Autowired
     public TestCron(TestService testService) {
         this.testService = testService;
-        Assert.notNull(this.testService);
+        Assert.notNull(this.testService, "testService must not be null.");
     }
 
     /**
