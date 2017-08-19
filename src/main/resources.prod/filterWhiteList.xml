@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<whiteList>
+    <swagger>
+        <url>/favicon.ico</url>
+        <url>/index.html</url>
+        <url>/swagger/login</url>
+        <url>/swagger/login/check</url>
+        <url>/resources/bootstrap/bootstrap.min.css</url>
+        <url>/resources/metisMenu/metisMenu.min.css</url>
+        <url>/resources/dist/sb-admin-2.css</url>
+        <url>/resources/font-awesome/font-awesome.min.css</url>
+        <url>/resources/jquery/jquery.min.js</url>
+        <url>/resources/metisMenu/metisMenu.min.js</url>
+        <url>/resources/bootstrap/bootstrap.min.js</url>
+        <url>/resources/dist/sb-admin-2.js</url>
+        <url>/swagger/verify/code</url>
+        <url>/swagger-ui.html</url>
+        <url>/webjars/springfox-swagger-ui/css/typography.css</url>
+        <url>/webjars/springfox-swagger-ui/css/reset.css</url>
+        <url>/webjars/springfox-swagger-ui/css/screen.css</url>
+        <url>/webjars/springfox-swagger-ui/lib/object-assign-pollyfill.js</url>
+        <url>/webjars/springfox-swagger-ui/lib/jquery-1.8.0.min.js</url>
+        <url>/webjars/springfox-swagger-ui/lib/jquery.slideto.min.js</url>
+        <url>/webjars/springfox-swagger-ui/lib/jquery.wiggle.min.js</url>
+        <url>/webjars/springfox-swagger-ui/lib/jquery.ba-bbq.min.js</url>
+        <url>/webjars/springfox-swagger-ui/lib/handlebars-4.0.5.js</url>
+        <url>/webjars/springfox-swagger-ui/lib/lodash.min.js</url>
+        <url>/webjars/springfox-swagger-ui/swagger-ui.min.js</url>
+        <url>/webjars/springfox-swagger-ui/lib/highlight.9.1.0.pack.js</url>
+        <url>/webjars/springfox-swagger-ui/lib/backbone-min.js</url>
+        <url>/webjars/springfox-swagger-ui/lib/highlight.9.1.0.pack_extended.js</url>
+        <url>/webjars/springfox-swagger-ui/lib/jsoneditor.min.js</url>
+        <url>/webjars/springfox-swagger-ui/lib/swagger-oauth.js</url>
+        <url>/webjars/springfox-swagger-ui/lib/marked.js</url>
+        <url>/webjars/springfox-swagger-ui/springfox.js</url>
+        <url>/webjars/springfox-swagger-ui/css/print.css</url>
+        <url>/webjars/springfox-swagger-ui/images/logo_small.png</url>
+        <url>/webjars/springfox-swagger-ui/fonts/DroidSans-Bold.ttf</url>
+        <url>/webjars/springfox-swagger-ui/fonts/DroidSans.ttf</url>
+        <url>/swagger-resources/configuration/ui</url>
+        <url>/swagger-resources</url>
+        <url>/webjars/springfox-swagger-ui/images/favicon-16x16.png</url>
+        <url>/v2/api-docs</url>
+        <url>/swagger-resources/configuration/security</url>
+        <url>/webjars/springfox-swagger-ui/images/throbber.gif</url>
+    </swagger>
+    <api>
+
+    </api>
+</whiteList>
