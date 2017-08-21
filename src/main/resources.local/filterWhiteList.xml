@@ -46,5 +46,6 @@
     </swagger>
     <api>
         <url>/test/page</url>
+        <url>/test/redirect</url>
     </api>
 </whiteList>
