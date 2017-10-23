@@ -9,13 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 /**
  * null
@@ -37,7 +38,7 @@ public class UserInfoController {
      *
      * @return 用户数量
      */
-    @RequestMapping(value = "test", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
+    @RequestMapping(value = "test", method = POST, produces = "application/json", consumes = "application/json")
     @ResponseBody
     @ApiOperation(value = "返回用户数量")
     @ApiResponses(value = {
@@ -50,7 +51,7 @@ public class UserInfoController {
     /**
      * 获取用户数量
      */
-    @RequestMapping(value = "test/redirect", method = RequestMethod.POST, produces = "application/json",
+    @RequestMapping(value = "test/redirect", method = POST, produces = "application/json",
             consumes = "application/json")
     @ResponseBody
     @ApiOperation(value = "返回用户数量")
