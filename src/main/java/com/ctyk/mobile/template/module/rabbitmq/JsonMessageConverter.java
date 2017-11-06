@@ -13,6 +13,8 @@ import org.springframework.amqp.support.converter.MessageConversionException;
 import java.io.UnsupportedEncodingException;
 
 /**
+ * 用了自带的解析器，此解析器也可用
+ *
  * @author wei.yang on 2017/11/6
  */
 public class JsonMessageConverter extends AbstractMessageConverter {
