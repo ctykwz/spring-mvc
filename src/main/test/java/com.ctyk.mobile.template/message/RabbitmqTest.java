@@ -26,8 +26,8 @@ public class RabbitmqTest {
     public void send() throws InterruptedException {
         for (int i = 0; i < 1; i++) {
             MessageModel messageModel = new MessageModel();
-            messageModel.setContent("ddddddddd");
-            messageModel.setTitle("dddddddddds");
+            messageModel.setContent(String.format("msg body:%s\t", i));
+            messageModel.setTitle(String.format("msg title:%s\t", i));
             pushWorker.send(messageModel);
         }
         Thread.sleep(100000);

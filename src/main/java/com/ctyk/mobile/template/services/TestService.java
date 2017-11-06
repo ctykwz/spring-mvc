@@ -1,5 +1,6 @@
 package com.ctyk.mobile.template.services;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -11,7 +12,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Service
 public class TestService {
 
-    private AtomicInteger count=new AtomicInteger(0);
+    private static final Logger logger = Logger.getLogger(TestService.class);
+
+    private AtomicInteger count = new AtomicInteger(0);
 
     public TestService() {
     }
@@ -19,7 +22,7 @@ public class TestService {
     /**
      * 打印数字
      */
-    public void print(){
-        System.out.println(count.incrementAndGet());
+    public void print() {
+        logger.info(String.format("test service:\t%s", count.incrementAndGet()));
     }
 }

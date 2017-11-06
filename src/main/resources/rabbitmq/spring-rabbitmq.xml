@@ -9,6 +9,8 @@
         <property name="host" value="${rabbitmq.ip}"/>
         <property name="password" value="${rabbitmq.password}"/>
         <property name="username" value="${rabbitmq.username}"/>
+        <property name="connectionTimeout" value="${rabbitmq.connection.timeout}"/>
+        <property name="requestedHeartBeat" value="${rabbitmq.request.heart.beat}"/>
     </bean>
 
     <!--基础配置-->

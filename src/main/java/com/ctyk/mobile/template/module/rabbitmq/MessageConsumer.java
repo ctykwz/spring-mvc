@@ -56,8 +56,8 @@ public class MessageConsumer implements MessageListener, Closeable {
             try {
                 ObjectInputStream inputStream = new ObjectInputStream(new ByteArrayInputStream(message.getBody()));
                 MessageModel messageModel = (MessageModel) inputStream.readObject();
-                logger.info(String.format("msg:%s\t%s\t", count.incrementAndGet(), Thread.currentThread().getName()) + messageModel);
-
+                logger.info(String.format("msg:%s\t%s\t", count.incrementAndGet(), Thread.currentThread().getName()) +
+                        messageModel);
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
