@@ -1,5 +1,6 @@
 package com.ctyk.mobile.template.module.rabbitmq;
 
+import com.alibaba.fastjson.JSONObject;
 import com.ctyk.mobile.template.model.request.message.MessageModel;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import org.apache.log4j.Logger;
@@ -7,10 +8,7 @@ import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageListener;
 import org.springframework.stereotype.Component;
 
-import java.io.ByteArrayInputStream;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -35,7 +33,7 @@ public class MessageConsumer implements MessageListener, Closeable {
 
     @Override
     public void onMessage(Message message) {
-        executors.submit(new Handler(message));
+        executors.submit(new HandlerWithJson(message));
     }
 
     @Override
@@ -43,6 +41,10 @@ public class MessageConsumer implements MessageListener, Closeable {
         executors.shutdown();
     }
 
+    /**
+     * 需要message中的body实现序列化
+     */
+    @SuppressWarnings("unused")
     private class Handler implements Runnable {
 
         private Message message;
@@ -59,6 +61,26 @@ public class MessageConsumer implements MessageListener, Closeable {
                 logger.info(String.format("msg:%s\t%s\t", count.incrementAndGet(), Thread.currentThread().getName()) +
                         messageModel);
             } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private class HandlerWithJson implements Runnable {
+
+        private Message message;
+
+        HandlerWithJson(Message message) {
+            this.message = message;
+        }
+
+        @Override
+        public void run() {
+            try {
+                String body = new String(message.getBody(), "utf-8");
+                MessageModel messageModel = JSONObject.parseObject(body, MessageModel.class);
+                logger.info("messageModel:\t" + messageModel);
+            } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
         }

@@ -30,6 +30,6 @@ public class RabbitmqTest {
             messageModel.setTitle(String.format("msg title:%s\t", i));
             pushWorker.send(messageModel);
         }
-        Thread.sleep(100000);
+        Thread.sleep(1000);
     }
 }

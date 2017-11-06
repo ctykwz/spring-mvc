@@ -19,9 +19,12 @@
                          ref="cachingConnectionFactory"/>
     </bean>
 
+    <bean class="org.springframework.amqp.support.converter.Jackson2JsonMessageConverter" name="jsonMessageConverter"/>
+
     <!--消息模板-->
     <bean class="org.springframework.amqp.rabbit.core.RabbitTemplate" id="rabbitTemplate">
         <constructor-arg ref="cachingConnectionFactory"/>
+        <property name="messageConverter" ref="jsonMessageConverter"/>
     </bean>
 
     <!--定义一个队列-->

@@ -1,13 +1,9 @@
 package com.ctyk.mobile.template.model.request.message;
 
-import java.io.Serializable;
-
 /**
  * @author wei.yang on 2017/10/23 10:16.
  */
-public class MessageModel implements Serializable {
-
-    private static final long serialVersionUID = -6487839157908352120L;
+public class MessageModel {
 
     private String title;
 
