@@ -1,6 +1,8 @@
 package com.ctyk.mobile.template.utils;
 
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * 字符串
@@ -9,6 +11,8 @@ import java.util.Random;
 public class StringUtil {
 
     private static final String CHAR_REPOSITORY = "abcdefghijklmnopqrstuvwxyz0123456789";
+
+    private ExecutorService service= Executors.newFixedThreadPool(10);
 
     /**
      * 生成一定长度的字符串

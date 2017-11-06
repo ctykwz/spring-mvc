@@ -10,6 +10,8 @@
     <!--redis-->
     <import resource="classpath:redis/spring-redis.xml"/>
 
+    <import resource="classpath:rabbitmq/spring-rabbitmq.xml"/>
+
     <!-- 数据源与mybatis相关配置 -->
     <import resource="spring-datasource.xml"/>
     <import resource="spring-mysql.xml"/>

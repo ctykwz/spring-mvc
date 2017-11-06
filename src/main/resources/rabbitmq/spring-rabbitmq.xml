@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:reabit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit.xsd">
+
+    <!--基础配置-->
+    <bean class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory" id="cachingConnectionFactory">
+        <property name="port" value="${rabbitmq.port}"/>
+        <property name="host" value="${rabbitmq.ip}"/>
+        <property name="password" value="${rabbitmq.password}"/>
+        <property name="username" value="${rabbitmq.username}"/>
+    </bean>
+
+    <!--基础配置-->
+    <bean class="org.springframework.amqp.rabbit.core.RabbitAdmin" id="rabbitAdmin">
+        <constructor-arg type="org.springframework.amqp.rabbit.connection.ConnectionFactory"
+                         ref="cachingConnectionFactory"/>
+    </bean>
+
+    <!--消息模板-->
+    <bean class="org.springframework.amqp.rabbit.core.RabbitTemplate" id="rabbitTemplate">
+        <constructor-arg ref="cachingConnectionFactory"/>
+    </bean>
+
+    <!--定义一个队列-->
+    <reabit:queue id="wei.queue.test" auto-declare="true" name="wei.queue.test"/>
+
+    <!--定义一个exchange-->
+    <reabit:topic-exchange name="wei.exchange" id="exchange">
+        <reabit:bindings>
+            <reabit:binding pattern="wei.queue.test" queue="wei.queue.test"/>
+        </reabit:bindings>
+    </reabit:topic-exchange>
+
+    <!--定义一个消费者-->
+    <reabit:listener-container connection-factory="cachingConnectionFactory">
+        <reabit:listener ref="messageConsumer" queues="wei.queue.test"/>
+    </reabit:listener-container>
+
+</beans>
