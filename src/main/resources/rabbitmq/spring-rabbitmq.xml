@@ -36,10 +36,23 @@
             <reabit:binding pattern="wei.queue.test" queue="wei.queue.test"/>
         </reabit:bindings>
     </reabit:topic-exchange>
+    <!--
+          &lt;!&ndash;定义一个消费者&ndash;&gt;
+        <reabit:listener-container connection-factory="cachingConnectionFactory">
+            <reabit:listener ref="messageConsumer" queues="wei.queue.test"/>
+        </reabit:listener-container>
+    -->
 
-    <!--定义一个消费者-->
-    <reabit:listener-container connection-factory="cachingConnectionFactory">
-        <reabit:listener ref="messageConsumer" queues="wei.queue.test"/>
-    </reabit:listener-container>
-
+    <!--定义一个adapter来处理消息-->
+    <bean class="org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter" id="messageListenerAdapter">
+        <property name="messageConverter" ref="jsonMessageConverter"/>
+        <constructor-arg ref="consumer"/>
+        <property name="defaultListenerMethod" value="onMessage"/>
+    </bean>
+    <!--定义一个container来监听队列-->
+    <bean class="org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer">
+        <property name="queues" ref="wei.queue.test"/>
+        <property name="connectionFactory" ref="cachingConnectionFactory"/>
+        <property name="messageListener" ref="messageListenerAdapter"/>
+    </bean>
 </beans>
