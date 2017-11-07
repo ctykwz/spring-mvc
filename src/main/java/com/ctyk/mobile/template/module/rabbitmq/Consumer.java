@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- *
  * @author wei.yang on 2017/11/6
  */
 @Component
@@ -25,6 +25,8 @@ public class Consumer implements Closeable {
             TimeUnit.MILLISECONDS,
             new LinkedBlockingDeque<>(1024),
             threadFactory);
+
+    private AtomicInteger count = new AtomicInteger(0);
 
     public void onMessage(Object object) {
         executors.submit(new HandlerWithJson(object));
@@ -45,7 +47,7 @@ public class Consumer implements Closeable {
 
         @Override
         public void run() {
-            logger.info("msg:\t" + message);
+            logger.info(String.format("msg:%s\t", count.incrementAndGet()) + message);
         }
     }
 }

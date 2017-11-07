@@ -24,7 +24,7 @@ public class RabbitmqTest {
 
     @Test
     public void send() throws InterruptedException {
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 10; i++) {
             MessageModel messageModel = new MessageModel();
             messageModel.setContent(String.format("msg body:%s\t", i));
             messageModel.setTitle(String.format("msg title:%s\t", i));
