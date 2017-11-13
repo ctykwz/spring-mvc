@@ -11,7 +11,8 @@ public class ExceptionCatchTest {
     public void catchTest() {
         try {
             Thread thread = new Thread(new RunTest());
-            Thread.UncaughtExceptionHandler handler = (t, e) -> System.out.println("msg:\t" + t.getName() + "\t" + e.getMessage());
+            Thread.UncaughtExceptionHandler handler =
+                    (t, e) -> System.out.println("msg:\t" + t.getName() + "\t" + e.getMessage());
             thread.setUncaughtExceptionHandler(handler);
             thread.start();
         } catch (Exception e) {
