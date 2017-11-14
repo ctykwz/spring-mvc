@@ -377,6 +377,31 @@
             <artifactId>jedis</artifactId>
             <version>2.9.0</version>
         </dependency>
+
+        <!-- 图片处理google -->
+        <dependency>
+            <groupId>net.coobird</groupId>
+            <artifactId>thumbnailator</artifactId>
+            <version>[0.4, 0.5)</version>
+        </dependency>
+
+        <!-- 图片处理ali -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>simpleimage</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+
     </dependencies>
 
     <build>
